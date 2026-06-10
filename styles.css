@@ -78,7 +78,7 @@ button {
 }
 
 #generateButton {
-    background: linear-gradient(135deg, #7c4dff, #448aff);
+    background: linear-gradient(135deg, #de4dff, #4a44ff);
     color: #ffffff;
     box-shadow: 0 4px 15px rgba(124, 77, 255, 0.4);
 }
@@ -86,10 +86,13 @@ button {
 #generateButton:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(124, 77, 255, 0.6);
+    animation: bounce 0.3s;
+    animation-iteration-count: infinite;    
 }
 
-#generateButton:active {
-    transform: translateY(1px);
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
 }
 
 #resetButton {
@@ -102,6 +105,22 @@ button {
     background: rgba(239, 68, 68, 0.2);
     border-color: #ef4444;
     color: #ff8888;
+    animation: shake 0.3s;  
+    animation-iteration-count: infinite;  
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
 
 /* Magic Output Box */
@@ -110,8 +129,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px dashed rgba(255, 255, 255, 0.15);
-    border-radius: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.15);
     font-size: 1.5rem;
     font-weight: bold;
     color: #ffffff;
@@ -119,4 +137,26 @@ button {
     transition: all 0.4s ease;
     padding: 15px;
     box-sizing: border-box;
+}
+
+#spellArea.animate {
+    animation: starburst 0.5s ease-out;
+}
+
+@keyframes starburst {
+    0% {
+        transform: scale(0.95);
+        opacity: 0.6;
+        box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 1;
+        box-shadow: 0 0 30px rgba(234, 77, 255, 0.45);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+        box-shadow: inherit;
+    }
 }
